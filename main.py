@@ -61,7 +61,7 @@ class BTCTicker(QWidget):
         """
         )
 
-        self.price_label = QLabel("Cargando...")
+        self.price_label = QLabel("Loading...")
         self.price_label.setFont(QFont("Inter", 15, QFont.Weight.Bold))
 
         self.change_label = QLabel("0.00% (24h)")
@@ -119,8 +119,8 @@ class BTCTicker(QWidget):
         data = self.fetch_btc_data()
 
         if data is None:
-            self.price_label.setText("Sin conexion")
-            self.change_label.setText("Reintentando en 5s")
+            self.price_label.setText("No connection")
+            self.change_label.setText("Retrying in 5s")
             self.change_label.setStyleSheet("color: #9E9E9E; background: transparent; border: none;")
             self._set_timer_interval(OFFLINE_RETRY_MS)
             self.adjust_position()
@@ -145,7 +145,7 @@ class BTCTicker(QWidget):
 
     def contextMenuEvent(self, event: QEvent) -> None:
         menu = QMenu(self)
-        exit_action = QAction("Salir", self)
+        exit_action = QAction("Quit", self)
         exit_action.triggered.connect(self.close)
         menu.addAction(exit_action)
         menu.exec(QCursor.pos())
