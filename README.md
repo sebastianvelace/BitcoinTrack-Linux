@@ -3,7 +3,7 @@
 A lightweight, always-on-top Bitcoin price ticker for Linux desktops.  
 Displays real-time BTC/USDT price and 24h change from Binance — with zero chrome.
 
-![demo gif here]
+
 
 ## Features
 - Live BTC price via Binance public API (no API key needed)
